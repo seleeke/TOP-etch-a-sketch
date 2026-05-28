@@ -92,6 +92,11 @@ p.prompt-main-text, .prompt-subtext {
     justify-content: center;
 }
 
+.grid-selection-container {
+    display: flex;
+    gap: 1rem;
+}
+
 .etch-frame {
     height: 30rem;
     min-width: 32rem;
@@ -108,7 +113,6 @@ p.prompt-main-text, .prompt-subtext {
 .etch-screen-frame {
     height: 24rem;
     width: 24rem;
-    border: 1px solid var(--etch-a-sketch-screen-color);
     background-color: var(--etch-a-sketch-screen-color); 
 }
 

@@ -14,13 +14,16 @@
 
 <main class="main-content">
     <section class="prompt-container">
-        <div class="prompt-content">
+        <form class="prompt-content">
             <label for="pixels" class="prompt-text">
                 <p class="prompt-main-text">How many pixels wide should we make your grid?</p>
-                <p class="prompt-subtext">(Choose between 10 - 100)</p>
+                <p class="prompt-subtext">(Choose between 16 - 100)</p>
             </label>
-            <input type="number" name="pixels" min="10" max="100" value="10" class="prompt-input"></input>
-        </div>
+            <div class='grid-selection-container'>
+                <input class="prompt-input" type="number" name="pixels" min="16" max="100" value="16"/>
+                <input class="grid-button" type="submit" value="Make grid"/>
+            </div>
+        </form>
     </section>
     <section class="etch-frame">
         <div class="etch-screen-frame"></div>
