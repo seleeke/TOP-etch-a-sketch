@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP: Etch-a-Sketch Project</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header>
+   <p class="page-title">Etch-a-Sketch</p>
+</header>
+
+<main class="main-content">
+    <section class="prompt-container">
+        <div class="prompt-content">
+            <label for="pixels" class="prompt-text">
+                <p class="prompt-main-text">How many pixels wide should we make your grid?</p>
+                <p class="prompt-subtext">(Choose between 10 - 100)</p>
+            </label>
+            <input type="number" name="pixels" min="10" max="100" value="10" class="prompt-input"></input>
+        </div>
+    </section>
+    <section class="etch-frame">
+        <div class="etch-screen-frame"></div>
+        <div class="controller-container">
+            <div class="controller-knob-visual" id="left-knob"></div>
+            <button class="controller-erase-button">Erase</button>
+            <div class="controller-knob-visual" id="right-knob"></div>
+        </div>
+    </section>
+
+</main>
+
+    
+
+<footer>
+   <p class="page-title">Seleeke Flingai</p>
+</footer>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>
