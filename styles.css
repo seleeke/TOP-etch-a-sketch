@@ -1,6 +1,7 @@
 :root {
     --etch-a-sketch-body-color: hsl(358, 57%, 55%);
     --etch-a-sketch-screen-color: hsl(210deg 9.57% 63.14%);
+    --etch-a-sketch-screen-color-hover: hsl(210, 6%, 37%);
     --etch-a-sketch-rotary-color: hsl(212deg 21.74% 86.47%);
 
     --white: #ECECE4;
@@ -144,7 +145,6 @@ p.prompt-main-text, .prompt-subtext {
 #right-knob {
     clip-path: circle(2.5rem);
 }
-
 
 /* footer styling */
 footer {

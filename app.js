@@ -4,8 +4,6 @@ const etchScreenSubmitBtn = document.querySelector(".grid-button");
 const etchScreenInput = document.querySelector(".prompt-input");
 const etchScreenFrame = document.querySelector(".etch-screen-frame");
 
-console.log(etchScreenFrame)
-
 etchScreenSubmitBtn.addEventListener("click", (e) => {
    
     e.preventDefault(); // prevent form submission default behavior
@@ -14,18 +12,21 @@ etchScreenSubmitBtn.addEventListener("click", (e) => {
 
     // create one grid div sized so that the userInput number of divs equals full frame height/width
     
-
-    for (let index = 1; index <= userInput*userInput; index++) {
+        
+    for (let index = 0; index < userInput*userInput; index++) {
         const pixelDivs = document.createElement("div");
-        pixelDivs.classList.add = "pixel-div";
-        pixelDivs.setAttribute("style", "margin: 0; padding: 0; background-color: blue;")
+        pixelDivs.setAttribute("style", "margin: 0; padding: 0; background-color:blue;")
         pixelDivs.style.height = (etchScreenFrame.offsetHeight / userInput) + "px";
         pixelDivs.style.width = (etchScreenFrame.offsetWidth / userInput) + "px";
-        etchScreenFrame.appendChild(pixelDivs);
+
+        // add grid div to container
+        etchScreenFrame.appendChild(pixelDivs); 
+        
+        // add class to grid divs
+        etchScreenFrame.children[index].classList.add("pixel-div"); 
+
+        
     }
-
-
+  
 }
-)
-
-// const pixelDivs = document.createElement("div")
+);
