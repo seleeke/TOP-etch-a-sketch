@@ -111,6 +111,8 @@ p.prompt-main-text, .prompt-subtext {
 }
 
 .etch-screen-frame {
+    display: flex;
+    flex-wrap: wrap;
     height: 24rem;
     width: 24rem;
     background-color: var(--etch-a-sketch-screen-color); 

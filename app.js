@@ -12,16 +12,18 @@ etchScreenSubmitBtn.addEventListener("click", (e) => {
 
     const userInput = etchScreenInput.value; // gather current value of input
 
-    console.log(userInput); // confirm that user input is logged upon button click
+    // create one grid div sized so that the userInput number of divs equals full frame height/width
+    
 
-    // 
-    const pixelDivs = document.createElement("div");
-    pixelDivs.classList.add = "pixel-div";
-    pixelDivs.setAttribute("style", "margin: 0; padding: 0; background-color: blue;")
-    pixelDivs.style.height = (etchScreenFrame.offsetHeight / userInput) + "px";
-    pixelDivs.style.width = (etchScreenFrame.offsetWidth / userInput) + "px";
+    for (let index = 1; index <= userInput*userInput; index++) {
+        const pixelDivs = document.createElement("div");
+        pixelDivs.classList.add = "pixel-div";
+        pixelDivs.setAttribute("style", "margin: 0; padding: 0; background-color: blue;")
+        pixelDivs.style.height = (etchScreenFrame.offsetHeight / userInput) + "px";
+        pixelDivs.style.width = (etchScreenFrame.offsetWidth / userInput) + "px";
+        etchScreenFrame.appendChild(pixelDivs);
+    }
 
-    etchScreenFrame.appendChild(pixelDivs);
 
 }
 )
