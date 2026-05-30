@@ -23,10 +23,20 @@ etchScreenSubmitBtn.addEventListener("click", (e) => {
         etchScreenFrame.appendChild(pixelDivs); 
         
         // add class to grid divs
-        etchScreenFrame.children[index].classList.add("pixel-div"); 
-
-        
+        etchScreenFrame.children[index].classList.add("pixel-div");       
     }
   
+  //  console.log(etchScreenFrame.children[0]);
+    const etchScreenPixels = document.querySelectorAll(".pixel-div")
+
+
+    function changePixelColor(e) {
+        this.style.backgroundColor = "red";
+    }
+    
+    for (const pixel of etchScreenPixels) {
+        pixel.addEventListener("mouseover", changePixelColor);
+    }
+
 }
 );
