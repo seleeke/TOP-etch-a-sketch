@@ -9,7 +9,9 @@ let userInput = etchScreenInput.value; // gather current value of input
 
 function drawPixels(userInput) {
     
-    for (let index = 0; index < userInput*userInput; index++) {
+    const numPixels = userInput**2;
+
+    for (let index = 0; index < numPixels; index++) {
         pixelDiv = document.createElement("div");
         pixelDiv.setAttribute("style", 
             "margin: 0; padding: 0; background-color:var(--etch-a-sketch-screen-color);")
@@ -22,17 +24,29 @@ function drawPixels(userInput) {
         // add class to grid divs
         etchScreenFrame.children[index].classList.add("pixel-div");       
         
+        // apply the changePixelColor function to every pixelDiv element
         const etchScreenPixels = document.querySelectorAll(".pixel-div") 
     
-    for (const pixel of etchScreenPixels) {
-        pixel.addEventListener("mouseover", changePixelColor); 
-    };
+        for (const pixel of etchScreenPixels) {
+            pixel.addEventListener("mousedown", changePixelColor); 
+            pixel.addEventListener("mouseover", changePixelColorHover); 
+        };
 
 }}
     
 function changePixelColor(e) {
         
     this.style.backgroundColor = "var(--etch-a-sketch-screen-color-hover)";
+}
+
+function changePixelColorHover(e) {
+   
+    // e.buttons returns 'true' if a mouse button is currently being pressed
+    if (e.buttons == true) {
+
+            this.style.backgroundColor = "var(--etch-a-sketch-screen-color-hover)";
+
+    }
    
 }
 
