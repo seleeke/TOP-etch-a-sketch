@@ -3,40 +3,61 @@
 const etchScreenSubmitBtn = document.querySelector(".grid-button");
 const etchScreenInput = document.querySelector(".prompt-input");
 const etchScreenFrame = document.querySelector(".etch-screen-frame");
+const eraseBtn = document.querySelector(".controller-erase-button");
+let userInput = etchScreenInput.value; // gather current value of input
+ 
 
-etchScreenSubmitBtn.addEventListener("click", (e) => {
-   
-    e.preventDefault(); // prevent form submission default behavior
-
-    const userInput = etchScreenInput.value; // gather current value of input
-
-    // create one grid div sized so that the userInput number of divs equals full frame height/width
+function drawPixels(userInput) {
     
-        
     for (let index = 0; index < userInput*userInput; index++) {
-        const pixelDivs = document.createElement("div");
-        pixelDivs.setAttribute("style", "margin: 0; padding: 0; background-color:blue;")
-        pixelDivs.style.height = (etchScreenFrame.offsetHeight / userInput) + "px";
-        pixelDivs.style.width = (etchScreenFrame.offsetWidth / userInput) + "px";
+        pixelDiv = document.createElement("div");
+        pixelDiv.setAttribute("style", 
+            "margin: 0; padding: 0; background-color:var(--etch-a-sketch-screen-color);")
+        pixelDiv.style.height = (etchScreenFrame.offsetHeight / userInput) + "px";
+        pixelDiv.style.width = (etchScreenFrame.offsetWidth / userInput) + "px";
 
         // add grid div to container
-        etchScreenFrame.appendChild(pixelDivs); 
+        etchScreenFrame.appendChild(pixelDiv); 
         
         // add class to grid divs
         etchScreenFrame.children[index].classList.add("pixel-div");       
-    }
-  
-  //  console.log(etchScreenFrame.children[0]);
-    const etchScreenPixels = document.querySelectorAll(".pixel-div")
-
-
-    function changePixelColor(e) {
-        this.style.backgroundColor = "red";
-    }
+        
+        const etchScreenPixels = document.querySelectorAll(".pixel-div") 
     
     for (const pixel of etchScreenPixels) {
-        pixel.addEventListener("mouseover", changePixelColor);
-    }
+        pixel.addEventListener("mouseover", changePixelColor); 
+    };
+
+}}
+    
+function changePixelColor(e) {
+        
+    this.style.backgroundColor = "var(--etch-a-sketch-screen-color-hover)";
+   
+}
+
+function clearGrid(e) {
+      
+    // prevent form submission default behavior
+    e.preventDefault(); 
+      
+    // on click...
+    // ...clear etch screen...
+    etchScreenFrame.replaceChildren();
+
+    // ...gather current value of input...
+    newUserInput = etchScreenInput.value; 
+ 
+    // ...and run the drawPixels function on the newUserInput value
+    drawPixels(newUserInput);
 
 }
-);
+
+etchScreenSubmitBtn.addEventListener("click", clearGrid); 
+
+eraseBtn.addEventListener("click", clearGrid);
+
+drawPixels(userInput);
+
+
+
